@@ -1,0 +1,66 @@
+<!-- access url: http://localhost:8080/test/jasmine-test.html to run tests -->
+
+<link rel="shortcut icon" type="image/png" href="jasmine/lib/jasmine/jasmine_favicon.png">
+<link rel="stylesheet" type="text/css" href="jasmine/lib/jasmine/jasmine.css">
+
+<script type="text/javascript" src="jasmine/lib/jasmine/jasmine.js"></script>
+<script type="text/javascript" src="jasmine/lib/jasmine/jasmine-html.js"></script>
+<script type="text/javascript" src="jasmine/lib/jasmine/boot.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="../brainchain.js"></script>
+
+<h1> Here are some jasmine unit tests: </h1>
+<script>
+    //example test from jasmine documentation
+    describe("A suite is just a function", function() {
+      var a;
+      it("and so is a spec", function() {
+        a = true;
+        expect(a).toBe(true);
+      });
+    });
+
+    describe("Test get sessions function", function() {
+      it("Test get sessions function", function() {
+          //The function should return false
+          var received = getSessions();
+          expect(received).toBe(false);
+      });
+    });
+
+    describe("Test log in", function() {
+      it("test login", function() {
+          //logged in should be undefined since user is not logged in yet
+          var loggedIn = checkLoggedIn();
+          expect(loggedIn).toBe(false);
+      });
+    });
+
+    describe("Test join session", function() {
+      it("test join session", function() {
+          //join session function should return false
+          var sessionJoined = join(-1);
+          expect(sessionJoined).toBe(false);
+      });
+    });
+
+    describe("Sessions list length should be zero", function() {
+      it("Sessions list length should be zero", function() {
+          //The sessions element should be zero since there are no sessions loaded yet
+          getSessions();
+          var ul = $('#sessions');
+          expect(ul.first.length).toBe(0);
+      });
+    });
+
+    describe("Test generate session card function", function() {
+      it("Test generate session card function", function() {
+          //The sessions card should be generated and then return true
+          var received = getSessions();
+          expect(received).toBe(false);
+      });
+    });
+
+
+
+</script>

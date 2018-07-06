@@ -1,0 +1,115 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>My Profile</title>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+		<!-- Latest compiled JavaScript -->
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+		<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+		<link rel="stylesheet" type="text/css" href="css/brainchain.css">
+		<script
+			src="https://code.jquery.com/jquery-3.1.1.min.js"
+			integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+			crossorigin="anonymous">
+		</script>
+		<script
+			src="brainchain.js">
+		</script>
+	</head>
+	<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a href="/" class="navbar-left"><img id="logo" src="Brain_Chain-04.png"></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="/">Find a Session <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/session">Create a Session </a>
+				</li>
+				<li class = "nav-item">
+					<a id="mySessions" class="nav-link" href="/mysessions">My Sessions</a>
+				</li>
+			   <li class="nav-item">
+				<a class="nav-link" href="/aboutus">About BrainChain </a>
+			   </li>
+			</ul>
+			<ul class= "navbar-nav ml-auto">
+				<li class = "nav-item active">
+					<a id="myProfile" class="nav-link" href="">My profile</a>
+				</li>
+				<li id = "logout" class= "nav-item">
+					<a class="nav-link" href="/logout">Logout </a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<div class="container-fluid no-padding">
+		<div class="row justify-content-center" id="image">
+			<h1 id = "main-text"><i>Your Profile</i><h1>
+		</div>
+	<div>
+	<div class="container-fluid">
+	<div class="row justify-content-center">
+	<div class="col-md-6 text-center">
+	<h4 id="name"></h4>
+	<h4 id="email"></h4>
+	<h4 id="notificationTime"></h4>
+	</div>
+	</div>
+	<div class="row justify-content-center">
+	<div class="col-md-6">
+	<h4>Courses </h4>
+	<ul id="courses">
+	</ul>
+	<br>
+	<button onclick="window.location.href='/editProfile';">Edit Your Profile</button>
+	</div>
+	</div>
+
+		<script>
+			$.getJSON("/check_logged_in", function(data){
+				var check=data.loggedIn;
+				if(check==false){
+					window.location.href = "/login";
+				}
+				else{
+					document.getElementById("email").innerHTML = data.email
+					document.getElementById("name").innerHTML = data.fname + " " + data.lname;
+					document.getElementById("notificationTime").innerHTML = "Notification Time: " + data.notificationTime + " minutes";
+					document.getElementById("myProfile").innerHTML="My profile";
+					document.getElementById("myProfile").href = "/myprofile";
+					document.getElementById("mySessions").innerHTML="My Sessions";
+					document.getElementById("mySessions").href = "/mysessions";
+					myCourses = $.get('/myCourses', function(data, status) {
+						for(var i = 0; i < data.length; i++) {
+							li = "<li class=\"courses\">" + data[i].course + "</li>";
+							$("#courses").append(li);
+						}
+						console.log(data);
+					});
+				}
+				/*var class1 = data.class1
+				var class2=data.class2
+				var class3=data.class3
+				var class4=data.class4
+				var class5=data.class5*/
+			});
+
+			
+			/*document.getElementById("class3").innerHTML = class3
+			document.getElementById("class4").innerHTML = class4
+			document.getElementById("class5").innerHTML = class5*/
+		</script>
+
+		
+</body>
+</html>

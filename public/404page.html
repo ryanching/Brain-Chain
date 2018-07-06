@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>404page</title>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="css/brainchain.css">
+	</head>
+	<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a href="/" class="navbar-left"><img id="logo" src="Brain_Chain-04.png"></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="/">Find a Session</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/session">Create a Session </a>
+				</li>
+				<li class = "nav-item">
+					<a id="mySessions" class="nav-link" href=""></a>
+				</li>
+			   <li class="nav-item">
+				<a class="nav-link" href="/aboutus">About BrainChain </a>
+			   </li>
+			</ul>
+			<ul class= "navbar-nav ml-auto">
+				<li class = "nav-item">
+					<a id="myProfile" class="nav-link" href=""></a>
+				</li>
+				<li id ="logout" class= "nav-item">
+					<a class="nav-link" href="/logout">Logout </a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<div class="container-fluid no-padding">
+		<div class="row justify-content-center" id="image">
+			<h1 id = "main-text"><i>Page Not Found</i><h1>
+		</div>
+	<div>
+	<h1 id="h404">Sorry, that page doesn't exist! </h1>
+	<p id="p404">You can <a href="/profile">click here to create a profile</a> or <a href="/">click here to return to the home page</a>.</p>
+	<script type="text/javascript">
+  		$.getJSON("/check_logged_in", function(data){
+				var check=data.loggedIn;
+				if(check==false){
+					$("#logout").hide();
+					$("#mySessions").hide();
+					document.getElementById("myProfile").innerHTML="Login/Sign Up";
+					document.getElementById("myProfile").href = "/login.html";
+					
+				}
+				else{
+					document.getElementById("myProfile").innerHTML="My profile";
+					document.getElementById("myProfile").href = "/myprofile";
+					document.getElementById("mySessions").innerHTML="My Sessions";
+					document.getElementById("mySessions").href = "/mysessions";
+				}
+			});
+  	</script>
+	<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+	
+	</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>About Us</title>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+		<!-- Latest compiled JavaScript -->
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+		<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+
+		<link rel="stylesheet" type="text/css" href="css/brainchain.css">
+		<script
+			src="https://code.jquery.com/jquery-3.1.1.min.js"
+			integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+			crossorigin="anonymous">
+		</script>
+		<script
+			src="brainchain.js">
+		</script>
+	</head>
+	<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a href="/" class="navbar-left"><img id="logo" src="Brain_Chain-04.png"></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="/">Find a Session <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/session">Create a Session </a>
+				</li>
+				<li class = "nav-item">
+					<a id="mySessions" class="nav-link" href=""></a>
+				</li>
+			   <li class="nav-item active">
+				<a class="nav-link" href="/aboutus">About BrainChain </a>
+			   </li>
+			</ul>
+			<ul class= "navbar-nav ml-auto">
+				<li class = "nav-item">
+					<a id="myProfile" class="nav-link" href=""> </a>
+				</li>
+				<li id = "logout" class= "nav-item">
+					<a class="nav-link" href="/logout">Logout </a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<div class="container-fluid no-padding">
+		<div class="row justify-content-center" id="image">
+			<h1 id = "main-text"><i>About Us</i><h1>
+		</div>
+	<div>
+	<div id ="main" class="container-fluid">
+		<div class="row justify-content-center">
+		<div class="col-md-8 ">
+		<div class="text-center" style="padding-top: 20px;">
+		 <p>BrainChain was designed to help students like you create and find study groups at a moment’s notice. 
+		 <br><h4>Contact:</h4>If you are experiencing technical difficulties with BrainChain, please contact 
+		 <b>technical.brainchain@gmail.com</b>. <br><br>
+		Interested in bringing Brain Chain to your school? Send an email to <b>development.brainchain@gmail.com</b> 
+		and we’ll get back to you right away.<br><br>
+		For all other inquiries, please reach out to <b>questions.brainchain@gmail.com</b></p>
+		</div>
+		</div>
+	<div>
+	<script type="text/javascript">
+  		$.getJSON("/check_logged_in", function(data){
+				var check=data.loggedIn;
+				if(check==false){
+					$("#mySessions").hide();
+					$("#logout").hide();
+					document.getElementById("myProfile").innerHTML="Login/Sign Up";
+					document.getElementById("myProfile").href = "/login";
+				}
+				else{
+					document.getElementById("myProfile").innerHTML="My profile";
+					document.getElementById("myProfile").href = "/myprofile";
+					document.getElementById("mySessions").innerHTML="My Sessions";
+					document.getElementById("mySessions").href = "/mysessions";
+				}
+		});
+</script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Login</title>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+		<!-- Latest compiled JavaScript -->
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+		<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+
+		<link rel="stylesheet" type="text/css" href="css/brainchain.css">
+		<script
+			src="https://code.jquery.com/jquery-3.1.1.min.js"
+			integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+			crossorigin="anonymous">
+		</script>
+		<script
+			src="brainchain.js">
+		</script>
+	</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<a href="/" class="navbar-left"><img id="logo" src="Brain_Chain-04.png"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Find a Session</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/session">Create a Session <span class="sr-only">(current)</span> </a>
+        </li>
+         <li class="nav-item">
+        <a class="nav-link" href="/aboutus">About BrainChain </a>
+         </li>
+      </ul>
+      <ul class= "navbar-nav justify-content-end">
+        <li class = "nav-item">
+          <a class="nav-link" href="/login">Login/Sign Up</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container-fluid no-padding">
+    <div class="row justify-content-center" id="image">
+      <h1 id = "main-text"><i>Login to your Account</i><h1>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class='col-md-3'>
+
+	<form id="credentials" name="credentials" align="center">
+	<div class="form-group">
+		<label for="username">Email</label>
+		<input id="username" class="form-control" name="Username" type="text">
+	</div>
+	<div class="form-group">
+		<label for="password">Password</label>
+		<input id="password" class="form-control" name="Password" type="password">
+	</div>
+	<div class="form-group">
+		<input id="submit-button" type="submit" value="Submit">
+	</div>
+	</form>
+	<div class="text-center">
+	<p><i>Don't have an account? Sign up <a href="/profile">here!</a></i></p>
+	<p><i>Forgot your password? <a href="/forgot">Click here!</a></i></p>
+	</div>
+	<div id="wrong_pass">
+	</div>
+	</div>
+	</div>
+	</div>
+	<script type="text/javascript">
+		$('#credentials').submit(submit);
+		function submit(e){
+			e.preventDefault();
+			$.post('/login', {username: $("#username").val(), pass: $("#password").val()}, function(res){
+				console.log(res);
+				//if(error){
+				//	console.log("error");
+				//}
+				if(res !== 'error') {
+					if(res === 'good') {
+						window.location.href = "/";
+					} else {
+						window.location.href=res;
+					}
+				} else {
+					document.getElementById("wrong_pass").innerHTML = "Invalid username or password."
+					$('#password').val('');
+					//document.credentials.reset();
+				}
+			});
+		}
+	</script>
+</body>
+</html>

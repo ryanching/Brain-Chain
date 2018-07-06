@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Edit Your Profile</title>
+	
+	<!-- jQuery library -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<!-- jQuery library -->
+		<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+             rel = "stylesheet">
+		<script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+	 	<script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-typeahead/2.10.4/jquery.typeahead.js"></script>
+		<!-- Latest compiled JavaScript -->
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+		<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+		<link rel="stylesheet" type="text/css" href="css/brainchain.css">
+		 
+		
+		
+		<!-- <script
+			src="https://code.jquery.com/jquery-3.1.1.min.js"
+			integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+			crossorigin="anonymous">
+		</script> -->
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" type="text/css" href="css/brainchain.css">
+	 <script>
+		  $( function() {
+		    var classes = [];
+		    var s = "/get_class_list";
+			$.getJSON(s, function(data) {
+				for(var i = 0; i < data.length; i++) {
+					var full_name = data[i].code;
+					full_name += ":";
+					full_name += data[i].title;
+					classes.push(full_name);
+				}
+			});
+		    $( "#class1" ).autocomplete({
+		      source: classes
+		    });
+		    $( "#class2" ).autocomplete({
+		      source: classes
+		    });
+		    $( "#class3" ).autocomplete({
+		      source: classes
+		    });
+		    $( "#class4" ).autocomplete({
+		      source: classes
+		    });
+		    $( "#class5" ).autocomplete({
+		      source: classes
+		    });
+		  } );
+		  </script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a href="/" class="navbar-left"><img id="logo" src="Brain_Chain-04.png"></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="/">Find a Session</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/session">Create a Session </a>
+				</li>
+				<li class = "nav-item">
+					<a id="mySessions" class="nav-link" href="/mysessions">My Sessions</a>
+				</li>
+			   <li class="nav-item">
+				<a class="nav-link" href="/aboutus">About BrainChain </a>
+			   </li>
+			</ul>
+			<ul class= "navbar-nav ml-auto">
+				<li class = "nav-item">
+					<a id="myProfile" class="nav-link" href="/myprofile">My profile</a>
+				</li>
+				<li id = "logout" class= "nav-item">
+					<a class="nav-link" href="/logout">Logout </a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<div class="container-fluid no-padding">
+		<div class="row justify-content-center" id="image">
+			<h1 id = "main-text"><i>Edit Your Profile</i><h1>
+		</div>
+	</div>
+		<div class="container">
+				<div class = "row justify-content-center">
+				<div class="col-md-8">
+				<form id="edits" style="padding: 5px;">
+					<div class="form-group center-block" style="margin-top: 20px;">
+						<label for="notificationTime"><span title="The number of minutes before a session that you wish to be notified">
+											Notification Time (minutes before session)</span></label><br>
+							<select id="notificationTime">
+								  <option value="5">5 minutes before
+								</option>
+								  <option value="15">15 minutes before
+								  </option>
+								  <option value="30">30 minutes before
+								  </option>
+								  <option value="60">One hour before
+								  </option>
+								  <option value="720">Twelve hours before
+								  </option>
+							</select>
+						</div>
+					<div class="form-group">
+						<label for="class1">Class 1:</label></td>
+						<input type="text" class="form-control" name="class1" id="class1">
+					</div>
+					<div class="form-group">
+						<label for="class2">Class 2:</label>
+						<input type="text" class="form-control" name="class2" id="class2">
+					</div>
+					<div class="form-group">
+						<label for="class3">Class 3:</label></td>
+						<input type="text" class="form-control" name="class3" id="class3">
+					</div>
+					<div class="form-group">
+						<label for="class4">Class 4:</label>
+						<input type="text" class="form-control" name="class4" id="class4">
+					</div>
+					<div class="form-group">
+						<label for="class5">Class 5:</label>
+						<input type="text" class="form-control" name="class5" id="class5">
+					</div>
+					<div class="form-group">
+						<input id="submit-button" type="submit" value="Submit" style="margin-right: 10px;">
+						
+					</div>
+			</form>
+			<button id="cancel" onclick="window.location.href='/myprofile';">Cancel</button>
+		</div>
+	</div>
+</div>
+
+<!-- 	<script>
+		/*function updateValue(e){
+			document.getElementById("notificationTime").value=e.target.value
+		}*/
+		/*$("notificationTime").change(function(){
+			var selected = $(this).find('option:selected');
+	      	console.log(selected)
+	      	console.log(selected.attr('data-number'))
+			$('#notificationTime').val(selected.attr('data-number')); 
+		}).trigger("change");*/
+	</script> -->
+	<script type="text/javascript">
+	    $('#edits').submit(submit);
+	    function submit(e){
+	      e.preventDefault();
+		  if($("#notificationTime").val() === "" ) {
+			alert("Missing fields");
+		  } else {
+			  $.post('/editProfile', {notificationTime: $("#notificationTime").val(), class1: document.getElementById("class1").value
+			  	,class2: document.getElementById("class2").value, class3: document.getElementById("class3").value, class4: document.getElementById("class4").value, 
+			  	class5: document.getElementById("class5").value}, function(error, data){
+				if(error){
+				  console.log("error"); 
+				}
+			  });
+			  window.location.href = "/myprofile";
+			}
+	    }
+	  </script>
+
+	<script>
+			$.getJSON("/check_logged_in", function(data){
+				var check=data.loggedIn;
+				console.log(check);
+				if(check==false){
+					window.location.href = "/login";
+				}
+				else{
+					document.getElementById("myProfile").innerHTML="My profile";
+					document.getElementById("myProfile").href = "/myprofile";
+					document.getElementById("mySessions").innerHTML="My Sessions";
+					document.getElementById("mySessions").href = "/mysessions";
+				}
+			});
+		</script>
+</body>
+</html>

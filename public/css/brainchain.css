@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css?family=Quattrocento+Sans');
+
+
+html {
+    width:100vw;
+    overflow-x:hidden;
+}
+
+h4 {
+	margin-top: 12px;
+	margin-bottom: 5px;
+}
+
+
+body {
+	font-family: 'Quattrocento Sans', sans-serif;
+}
+
+
+.form-group {
+	margin: 5px;
+}
+
+#submit-button {
+	margin-top: 8px;
+	margin-bottom: 10px;
+}
+
+#h404{
+	margin-top: 20px;
+	text-align:center;
+}
+
+#p404 {
+	text-align:center;
+	font-size: 24px;
+}
+
+
+#sessions, #sessions li {
+	list-style-type: none;
+        list-style-position:inside;
+        margin:0;
+        padding:0;
+		display: inline-block;
+		width: 100%;
+}
+
+#registeredSessions, #registeredSessions li{
+		font-size: 14px;
+		list-style-type: none;
+        list-style-position:inside;
+        margin:0;
+        padding:0;
+		display: inline-block;
+		width: 100%;
+}
+
+#cancel {
+	margin-bottom: 20px;
+}
+
+#noActive {
+	margin-top: 10px;
+}	
+
+#filters {
+	padding-bottom: 60px;
+}
+
+#main {
+	padding-top: 10px;
+	padding-bottom: 40px;
+}
+
+#image {
+	height: 200px;
+	background-size: 100%;
+	background:transparent url('hay.png');
+	background-position: center;
+}
+
+#main-text {
+	color: white;
+	vertical-align: center;
+	padding-top: 60px;
+	font-size: 60px;
+    text-align: center;
+}
+
+/* #sessions, #sessions li {
+	list-style-type: none;
+    list-style-position:inside;
+    margin:0;
+    padding:0;
+	display: inline-block;
+	width: 100%;
+	columns: 2;
+
+} */
+
+#sessions {
+	columns: 1;
+}
+
+#courses {
+	list-style-type: none;
+}
+
+#wrong_pass {
+	color: red;
+}
+
+.modal {
+	color: black;
+	overflow-y: auto;
+}
+
+.modal-open[style] {
+	padding-right: 0px !important;
+}
+
+.card {
+	width: 100%;
+	background-color: grey;
+	color: white;
+	border: none;
+	margin-top: 10px;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+.course-name {
+	padding: 5px;
+	float: left;
+}
+
+.professor {
+	padding: 5px;
+	float: right;
+}
+
+.organizer {
+	padding: 5px;
+	float: right;
+}
+
+.purpose {
+	padding: 5px;
+	float: left;
+}
+
+.date {
+	padding: 5px;
+	float: right;
+}
+
+.navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse {
+    max-height: none;
+}
+
+#logo {
+  display: block;
+  max-width:180px;
+  max-height:40px;
+  width: auto;
+  height: auto;
+  padding-bottom: 10px;
+}

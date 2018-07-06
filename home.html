@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Home</title>
+        <link rel="stylesheet" href="../css/styles.css">
+    </head>
+    <body>
+        <h1>Create profile</h1>
+        <form method="post" action="/create_profile">
+            <input type="hidden" name="email" value="ryanaching@gmail.com" id="nickname">
+            <input type="hidden" name="fname" value="Ryan" id="date">
+            <input type="hidden" name="lname" value="Ching" id="roomid">
+            <input type="hidden" name="notificationTime" value="10" id="message">
+            <input type="hidden" name="password" value="password" id="message">
+            <input type="submit" value="create prof" class="new_room" style=""/>
+        </form>
+
+        <h1>Join Session</h1>
+        <form method="post" action="/join_session">
+            <input type="hidden" name="session_id" value="500" id="nickname">
+            <input type="hidden" name="email" value="ryanaching@gmail.com" id="date">
+            <input type="hidden" name="sessionTime" value="2018-04-19 9:20:00" id="date">
+            <input type="submit" value="Join session" class="new_room" style=""/>
+        </form>
+
+    </body>
+</html>

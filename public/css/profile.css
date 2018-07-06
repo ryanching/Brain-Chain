@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css?family=Quattrocento+Sans');
+
+html {
+    width:100vw;
+    overflow-x:hidden;
+}
+
+input{
+  /*text-align: center;*/
+}
+
+body {
+	font-family: 'Quattrocento Sans', sans-serif;
+}
+
+form {
+  margin-top: 5px;
+}
+input {
+  padding: 5px;
+}
+
+label {
+  margin-top: 2px;
+}
+
+}
+#main {
+  padding-top: 10px;
+}
+
+#image {
+  height: 200px;
+  background-size: 100%;
+  background:transparent url('hay.png');
+  background-position: center;
+}
+
+#main-text {
+  color: white;
+  vertical-align: center;
+  padding-top: 60px;
+  font-size: 60px;
+  text-align: center;
+}
+
+#submit {
+  margin-top: 10px;
+}
+
+.grey-container{
+  height:450px;
+  background-color: #828282;
+}
